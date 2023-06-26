@@ -12,6 +12,5 @@ class Customer < ApplicationRecord
   validates:address, presence: true
   validates:email, presence: true
   validates:phone_number, presence: true
-  validates:password, presence: true
-  validates:password_confirmation, presence: true
+
 end

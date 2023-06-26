@@ -2,10 +2,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'homes' => 'homes#top'
+    resources :customers, only:[:index ,:show, :edit, :update]
   end
   
   namespace :public do
-    resource :customers, only:[:show, :edit , :quit]
+    resource :customers, only:[:show, :edit ,:update] do
+      get :quit
+      patch :withdrawal
+    end
   end
 root to: "public/homes#top"
 get '/about' => 'public/homes#about'
