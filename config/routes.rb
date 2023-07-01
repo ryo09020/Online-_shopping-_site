@@ -3,13 +3,16 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'homes' => 'homes#top'
     resources :customers, only:[:index ,:show, :edit, :update]
+    resources :items, only:[:index ,:show, :edit, :new,:create ,:update]
+    resources :genres, only:[:index, :edit, :create,:update]
   end
   
-  namespace :public do
+  scope module: :public do
     resource :customers, only:[:show, :edit ,:update] do
       get :quit
       patch :withdrawal
     end
+    resources :items, only:[:index,:show]
   end
 root to: "public/homes#top"
 get '/about' => 'public/homes#about'

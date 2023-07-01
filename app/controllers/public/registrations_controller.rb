@@ -6,7 +6,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   def after_sign_in_path_for(resource)
     
     flash[:notice] ="Welcome! You have signed up successfully."
-    public_customers_path
+    customers_path
   end
   # GET /resource/sign_up
   # def new

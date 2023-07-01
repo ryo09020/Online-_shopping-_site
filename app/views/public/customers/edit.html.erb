@@ -12,7 +12,7 @@
 
 <h1>Public::Customers#edit</h1>
 <p>Find me in app/views/public/customers/edit.html.erb</p>
-<%= form_with model: @customer, url: public_customers_path, method: :patch do |f| %>
+<%= form_with model: @customer, url: customers_path, method: :patch do |f| %>
   
   
   <div class="field">
@@ -55,4 +55,4 @@
 
 
 
-<%= link_to "退会する",quit_public_customers_path %>
+<%= link_to "退会する",quit_customers_path %>
