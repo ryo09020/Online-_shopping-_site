@@ -7,14 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # 管理者情報の登録
-# Admin.create!(
-#   email: 'c@c',
-#   password: 'cccccc'
-# )
+Admin.create!(
+  email: 'c@c',
+  password: 'cccccc'
+)
 
 # ジャンル情報の登録
-# genre1 = Genre.create!(name: 'ケーキ')
-# genre2 = Genre.create!(name: 'パン')
+genre1 = Genre.create!(name: 'ケーキ')
+genre2 = Genre.create!(name: 'パン')
 
 # 商品情報の登録
 item1 = Item.create!(
