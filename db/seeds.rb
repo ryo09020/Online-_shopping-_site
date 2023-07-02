@@ -19,7 +19,7 @@ genre2 = Genre.create!(name: 'パン')
 # 商品情報の登録
 item1 = Item.create!(
   name: 'いちごのショートケーキ',
-  genre_id: 6,
+  genre_id: genre1.id,
   price_no_tax: 1000,
   body: 'itigo',
   sales_status: true
@@ -28,7 +28,7 @@ item1.image.attach(io: File.open('./app/assets/images/no_image.jpg'), filename: 
 
 item2 = Item.create!(
   name: 'クリームパン',
-  genre_id: 7,
+  genre_id: genre2.id,
   price_no_tax: 2000,
   body: 'opjpo',
   sales_status: true
