@@ -7,7 +7,9 @@
 <%= @item.body %>
 ジャンル名
 <%= @item.genre.name %>
-<%= @item.price_no_tax %>
+税込価格（税抜価格）
+<%= @item.price_no_tax*1.1 %>
+(<%= @item.price_no_tax %>)
 <% if @item.sales_status %>
 販売中
 <%else%>
