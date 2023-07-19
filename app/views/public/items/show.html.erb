@@ -2,6 +2,23 @@
 
 <%=image_tag @item.image,size: "100x100" %>
 <%= @item.name %> </br>
+ジャンル：
+<%#= link_to ""%>
 <%= @item.body %> <br>
 <%= @item.genre.name %> </br>
 <%= @item.price_no_tax * 1.1 %>
+
+<%= form_with model: @cart_item, url: cart_items_path do |f| %>
+
+
+  <div class="field">
+    <%= f.label :quantity %><br />
+    <%= f.select :quantity,*[1..10],autofocus: true, autocomplete: "off" %>
+    <%= f.hidden_field :customer_id, :value => current_customer.id %>
+    <%= f.hidden_field :item_id, :value => @item.id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "カートに入れる" %>
+  </div>
+<% end %>

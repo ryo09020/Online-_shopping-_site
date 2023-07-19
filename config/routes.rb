@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       patch :withdrawal
     end
     resources :items, only:[:index,:show]
+    delete "cart_items/destroy_all" , to: "cart_items#destroy_all"
+    resources :cart_items, only:[:index,:update,:destroy,:create]
   end
 root to: "public/homes#top"
 get '/about' => 'public/homes#about'
