@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'addresses/index'
+    get 'addresses/edit'
+  end
   namespace :admin do
     get 'homes' => 'homes#top'
     resources :customers, only:[:index ,:show, :edit, :update]

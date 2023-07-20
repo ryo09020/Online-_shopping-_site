@@ -1,5 +1,5 @@
 ショッピングカート
-<%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete %>
+<%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, "data-confirm"=>"カートの全ての商品が削除されます"%>
 <% sum=0 %>
 
 <table>
@@ -16,14 +16,14 @@
       <% @cart_items.each do |cart_item| %>
         <tr>
             <td><%=image_tag cart_item.item.image,size: "50x50" %><%= cart_item.item.name %></td>
-            <td><%= cart_item.item.price_no_tax %></td>
+            <td><%= (cart_item.item.price_no_tax*1.1).to_i %></td>
             <%= form_with model: cart_item, url: cart_item_path(cart_item.id)  do |f| %>
                 <td>
                     <%= f.select :quantity,*[1..10],autofocus: true, autocomplete: "off" %>
                     <%= f.submit '変更',class:"btn btn-success" %>
                 </td>
             <% end %>
-            <td><%= cart_item.item.price_no_tax*1.1*cart_item.quantity %></td>
+            <td><%= (cart_item.item.price_no_tax*1.1*cart_item.quantity).to_i %></td>
             <td><%= link_to "削除する",cart_item_path(cart_item.id), method: :delete %></td>
             <% sum += cart_item.item.price_no_tax*1.1*cart_item.quantity %>
         </tr>
