@@ -4,7 +4,6 @@ class Public::CartItemsController < ApplicationController
   end
   
   def create
-    binding.pry
     if cart_item=CartItem.find_by(item_id: params[:cart_item][:item_id])
       cart_item.quantity=cart_item.quantity+CartItem.new(cart_item_params).quantity
     else
