@@ -2,7 +2,7 @@
 <h2><%= @item.name %></h2>
 <small>ジャンル : <%= @item.genre.name %></small></br>
 <%= @item.body %> <br>
-<b>¥<%= @item.price_no_tax * 1.1 %></b><small>(税込)</small>
+<b>¥<%= (@item.price_no_tax * 1.1).to_i %></b><small>(税込)</small>
 
 <% if customer_signed_in? %>
   <%= form_with model: @cart_item, url: cart_items_path do |f| %>
