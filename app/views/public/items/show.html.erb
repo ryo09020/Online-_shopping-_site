@@ -4,11 +4,13 @@
 <%= @item.body %> <br>
 <b>¥<%= @item.price_no_tax * 1.1 %></b><small>(税込)</small>
 
-<%= form_with model: @cart_item, url: cart_items_path do |f| %>
-  <div class="field">
-    <%= f.select :quantity,*[1..10],autofocus: true, autocomplete: "off" %>
-    <%= f.hidden_field :customer_id, :value => current_customer.id %>
-    <%= f.hidden_field :item_id, :value => @item.id %>
-    <%= f.submit "カートに入れる" %>
-  </div>
-<% end %>
+<% if customer_signed_in? %>
+  <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+    <div class="field">
+      <%= f.select :quantity,*[1..10],autofocus: true, autocomplete: "off" %>
+      <%= f.hidden_field :customer_id, :value => current_customer.id %>
+      <%= f.hidden_field :item_id, :value => @item.id %>
+      <%= f.submit "カートに入れる" %>
+    </div>
+  <% end %>
+<% end%>
