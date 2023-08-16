@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'homes' => 'homes#top'
+    post 'searches/search'
     resources :customers, only:[:index ,:show, :edit, :update]
     resources :items, only:[:index ,:show, :edit, :new,:create ,:update]
     resources :genres, only:[:index, :edit, :create,:update]
