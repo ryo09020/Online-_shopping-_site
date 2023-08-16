@@ -4,11 +4,11 @@
 <table>
     <tr>
         <th>氏名</th>
-        <td><%= @customer.last_name %><%= @customer.first_name %></td>
+        <td><%= @customer.name %></td>
     </tr>
     <tr>
         <th>カナ</th>
-        <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
+        <td><%= @customer.name_kana %></td>
     </tr>
     <tr>
         <th>郵便番号</th>
@@ -29,3 +29,5 @@
 </table>
 
 <h3>配送先<%= link_to "一覧を見る",addresses_path %></h3>
+
+<h3><b>注文履歴</b><%= link_to "一覧を見る",orders_path %></h3>
