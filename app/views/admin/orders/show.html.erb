@@ -6,7 +6,7 @@
     </tr>
     <tr>
         <th>注文日時</th>
-        <td><%= @order.created_at.strftime('%Y/%-m/%d - %H:%M.%S') %></td>
+        <td><%= @order.created_at.in_time_zone('Asia/Tokyo').strftime('%Y/%-m/%d   %H:%M.%S') %></td>
     </tr>
     <tr>
         <th>配送先</th>
@@ -26,7 +26,8 @@
                 <%#= f.select :status, options_from_collection_for_select(Order.statuses, Order.statuses.keys.to_a, Order.statuses_i18n.invert.keys.to_s) %>
                 <%#= f.select :status, Order.statuses.keys.to_a %>
                 <%= f.select :status, Order.statuses_i18n.invert.to_a %>
-                
+                <%#= f.select :status, Order.statuses_i18n.invert.keys,  Order.statuses%>
+                <%#= f.select :status, Order.statuses_i18n.invert.keys %>
                 <%#= f.select :status, options_from_collection_for_select(Order.statuses.keys.to_, Order.statuses_i18n.invert.keys.to_a, Order.statuses.keys.to_a) %>
                 
 

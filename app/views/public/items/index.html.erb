@@ -1,3 +1,6 @@
+<%= render 'template/genre_search' %>
+
+
 <h1 style="display:inline">商品一覧</h1>(全<%= @items.count%>件)<small>*販売停止中も含む</small></br>
     <% @items.each do |item| %>
         <% next if item.sales_status==false %>

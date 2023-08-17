@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   
   scope module: :public do
+    post 'genre_search/:id',to: 'genre_searches#search', as: :genre_search
     resource :customers, only:[:show, :edit ,:update] do
       get :quit
       patch :withdrawal

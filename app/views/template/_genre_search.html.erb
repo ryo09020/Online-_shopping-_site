@@ -1,0 +1,11 @@
+<table>
+    <tr><th>ジャンル</th></tr>
+    <% Genre.all.each do |genre|%>
+        <tr>
+            <td>
+                <%= link_to genre_search_path(genre.id),method: :post do %><%= genre.name %>
+                <%end%>
+            </td>
+        </tr>
+    <% end %>
+</table>
