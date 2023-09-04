@@ -1,1 +1,7 @@
 @use '~bootstrap/scss/bootstrap';
+
+/* styles.css */
+.table-container {
+            border: 1px solid #ccc; /* テーブルを包む要素にボーダーを設定 */
+            width: 100%;
+        }

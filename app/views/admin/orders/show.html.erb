@@ -29,7 +29,7 @@
                 <%#= f.select :status, Order.statuses_i18n.invert.keys,  Order.statuses%>
                 <%#= f.select :status, Order.statuses_i18n.invert.keys %>
                 <%#= f.select :status, options_from_collection_for_select(Order.statuses.keys.to_, Order.statuses_i18n.invert.keys.to_a, Order.statuses.keys.to_a) %>
-                
+                <%#= f.select :status, options_for_select(roles.zip(role_labels).map { |role, label| { value: Order.statuses.values, text: Order.statuses_i18n.invert.keys } }) %>
 
                 <%= f.submit '更新',class:"btn btn-success" %>
             <% end %>

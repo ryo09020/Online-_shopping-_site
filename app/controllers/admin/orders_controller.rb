@@ -14,6 +14,7 @@ class Admin::OrdersController < ApplicationController
       if order.status== "paid"
         order.order_details.update_all(making_status: 1)
       end
+      binding.pryorder
       redirect_to admin_order_path(order.id)
     end
   end
