@@ -1,2 +1,56 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<% if @customer.errors.any? %>
+    <%= @customer.errors.count %>errors prohibited this obj from being saved:
+    <ul>
+      <% @customer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+<% end %>
+
+
+<%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
+  
+  
+  <div class="field">
+    <%= f.label :last_name, "(姓)" %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "姓" ,placeholder:"姓"%>
+    <%= f.label :first_name,"(名)" %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "名" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name_kana, "(セイ)" %>
+    <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "セイ" %>
+    <%= f.label :first_name_kana,"(メイ)" %>
+    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "メイ" %>
+  </div>
+  
+
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :postal_code, "郵便番号（ハイフンなし）" %><br />
+    <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :address, "住所" %><br />
+    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+  </div>
+  
+   <div class="field">
+    <%= f.label :phone_number, "電話番号（ハイフンなし）" %><br />
+    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
+   </div>
+   
+   
+    
+    <%= f.radio_button :is_active, true, checked: true %> 有効
+    <%= f.radio_button :is_active, false %> 無効
+
+
+   <%= f.submit "変更を保存" %>
+<% end %>
