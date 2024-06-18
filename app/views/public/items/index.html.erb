@@ -1,0 +1,18 @@
+<div class= "row">
+    <div class= "col-1 mx-5 my-3">
+        <%= render 'template/genre_search' %>
+    </div>
+    
+    <div class = "col-10">
+        <h1 style="display:inline">商品一覧</h1>(全<%= @items.count%>件)<small>*販売停止中も含む</small></br>
+            <% @items.each do |item| %>
+                <% next if item.sales_status==false %>
+                
+                <%= link_to item_path(item.id) do%>
+                    <%=image_tag item.image,size: "100x100" %>
+                <%=item.name %>
+                ¥<%=item.price_no_tax %>
+                <% end %>
+            <% end %>
+    </div>
+</div>

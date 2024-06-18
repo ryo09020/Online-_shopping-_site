@@ -1,6 +1,10 @@
 class Customer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :cart_items,dependent: :destroy
+  has_many :addresses,dependent: :destroy
+  has_many :orders,dependent: :destroy
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
@@ -12,6 +16,17 @@ class Customer < ApplicationRecord
   validates:address, presence: true
   validates:email, presence: true
   validates:phone_number, presence: true
-  validates:password, presence: true
-  validates:password_confirmation, presence: true
+  
+  def address_display
+        '〒' + postal_code + ' ' + address + ' ' + last_name + first_name
+  end
+  
+  def name
+    last_name + " " + first_name
+  end
+  
+  def name_kana
+    last_name_kana + " " + first_name_kana
+  end
+
 end

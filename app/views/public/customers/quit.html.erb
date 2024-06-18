@@ -1,2 +1,11 @@
 <h1>Public::Customers#quit</h1>
 <p>Find me in app/views/public/customers/quit.html.erb</p>
+本当に退会しますか？
+
+退会すると、会員情報登録やこれまでの購入履歴を閲覧できなくなります。
+
+退会する場合は「退会する」をクリックしてください。
+
+<%= link_to "退会しない",customers_path %>
+
+<%= link_to "退会する",withdrawal_customers_path ,method: :patch,"data-confirm"=>"本当に退会しますか？"%>
