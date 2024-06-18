@@ -3,7 +3,7 @@ class Item < ApplicationRecord
     belongs_to :genre
     has_many :cart_items,dependent: :destroy
     has_many :order_details,dependent: :destroy
-    # validates:image, presence:true
+    validates:image, presence:true
     validates:genre_id, presence: true
     validates:name, presence: true
     validates:body, presence: true
