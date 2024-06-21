@@ -11,5 +11,5 @@
 8. ジャンル検索機能 
 
 
-Uploading 画面収録 2024-06-16 14.38.24.mov…
+[機能紹介動画](https://youtu.be/PRVen6Bp99Y)
 
